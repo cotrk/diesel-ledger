@@ -1,5 +1,6 @@
 import { Fuel } from 'lucide-react';
 import { DashboardHeader } from '@/components/DashboardHeader';
+import { NearbyStations } from '@/components/NearbyStations';
 import { QuickStats } from '@/components/QuickStats';
 import { ReceiptLogger } from '@/components/ReceiptLogger';
 import { ReceiptHistory } from '@/components/ReceiptHistory';
@@ -47,7 +48,7 @@ const Index = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">Diesel Tracker</h1>
-              <p className="text-xs text-muted-foreground">Iowa Fuel Receipt Manager</p>
+              <p className="text-xs text-muted-foreground">Live Local Diesel Prices • Iowa</p>
             </div>
           </div>
         </div>
@@ -60,6 +61,9 @@ const Index = () => {
           bestDealPrice={stats.bestDeal?.pricePerGallon || 0}
           worstDealPrice={stats.worstDeal?.pricePerGallon || 0}
         />
+
+        {/* PRIMARY: Nearby Stations - live local prices */}
+        <NearbyStations />
 
         {/* Quick Stats */}
         <QuickStats
@@ -120,7 +124,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="border-t border-border pt-6 pb-8 mt-8">
           <div className="text-center text-sm text-muted-foreground">
-            <p>Diesel Tracker • Built for owner-operators and small fleet managers</p>
+            <p>Diesel Tracker • Live local diesel prices for owner-operators</p>
             <p className="mt-1">Data stored locally on your device</p>
           </div>
         </footer>
