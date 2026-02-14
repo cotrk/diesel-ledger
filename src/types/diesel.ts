@@ -31,11 +31,32 @@ export interface MonthlyStats {
   fillUps: number;
 }
 
+export interface NearbyStation {
+  id: string;
+  name: string;
+  brand: string;
+  address: string;
+  distance: number; // miles
+  dieselPrice: number;
+  lastUpdated: string;
+  lat: number;
+  lng: number;
+}
+
+export interface UserLocation {
+  lat: number;
+  lng: number;
+  accuracy: number;
+  timestamp: number;
+}
+
 export const LOCATIONS = [
   'Adair Fuel',
   'Anita Shell',
   'Guthrie Ctr',
   'Atlantic Shell',
+  "Casey's General Store",
+  'Kum & Go',
   'Other'
 ] as const;
 
