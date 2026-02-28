@@ -24,7 +24,10 @@ export function NearbyStations() {
       : filtered.sort((a, b) => a.distance - b.distance);
   }, [userCoords.lat, userCoords.lng, sortBy, radius]);
 
-  const cheapest = stations[0];
+  const cheapest = useMemo(() => {
+    if (stations.length === 0) return null;
+    return stations.reduce((min, s) => s.dieselPrice < min.dieselPrice ? s : min, stations[0]);
+  }, [stations]);
   const displayed = showAll ? stations : stations.slice(0, 5);
 
   const getBrandColor = (brand: string) => {
